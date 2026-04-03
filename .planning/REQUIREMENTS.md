@@ -143,7 +143,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | FOUND-02 | Phase 1 | Done |
 | FOUND-03 | Phase 1 | Done |
 | FOUND-04 | Phase 1 | Done |
-| FOUND-05 | Phase 1 | Done |
+| FOUND-05 | Phase 4 | Partial (bar exists, full wiring Phase 4) |
 | COLL-01 | Phase 1 | Done |
 | COLL-02 | Phase 1 | Done |
 | COLL-03 | Phase 1 | Done |
@@ -152,8 +152,8 @@ Which phases cover which requirements. Updated during roadmap creation.
 | COLL-06 | Phase 1 | Done |
 | COLL-07 | Phase 1 | Done |
 | COLL-08 | Phase 1 | Done |
-| COLL-09 | Phase 1 | Partial |
-| COLL-10 | Phase 1 | Partial |
+| COLL-09 | Phase 2 | Partial (UI partial, complete in Phase 2) |
+| COLL-10 | Phase 2 | Partial (UI partial, complete in Phase 2) |
 | EXAM-01 | Phase 1 | Done |
 | EXAM-02 | Phase 1 | Done |
 | EXAM-03 | Phase 1 | Done |
@@ -180,7 +180,7 @@ Which phases cover which requirements. Updated during roadmap creation.
 | BLOG-01 | Phase 1 | Done |
 | BLOG-02 | Phase 1 | Partial |
 | BLOG-03 | Phase 1 | Done |
-| BLOG-04 | Phase 1 | Pending |
+| BLOG-04 | Phase 4 | Pending |
 | SCHOL-01 | Phase 1 | Done |
 | SCHOL-02 | Phase 1 | Partial |
 | SCHOL-03 | Phase 1 | Done |
@@ -190,15 +190,15 @@ Which phases cover which requirements. Updated during roadmap creation.
 | RESP-03 | Phase 1 | Done |
 | RESP-04 | Phase 1 | Done |
 | RESP-05 | Phase 1 | Done |
-| ADMIN-01 | Phase 3 | Pending |
-| ADMIN-02 | Phase 3 | Pending |
-| ADMIN-03 | Phase 3 | Pending |
+| ADMIN-01 | Phase 4 | Pending |
+| ADMIN-02 | Phase 4 | Pending |
+| ADMIN-03 | Phase 4 | Pending |
 
 **Coverage:**
-- v1 requirements: 45 total
-- Mapped to phases: 45
+- v1 requirements: 54 total
+- Mapped to phases: 54
 - Unmapped: 0
 
 ---
 *Requirements defined: 2026-04-03*
-*Last updated: 2026-04-03 after initialization*
+*Last updated: 2026-04-03 after roadmap creation*
