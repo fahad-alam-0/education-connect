@@ -5,11 +5,31 @@ import { Card, CardContent } from "@/components/ui/card";
 import { Input } from "@/components/ui/input";
 import { GraduationCap, Mail, Lock, Eye, EyeOff } from "lucide-react";
 import Link from "next/link";
-import { useState } from "react";
+import { useState, type FormEvent } from "react";
+import { useRouter } from "next/navigation";
 
 export default function LoginPage() {
   const [showPassword, setShowPassword] = useState(false);
   const [isSignUp, setIsSignUp] = useState(false);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [name, setName] = useState("");
+  const [error, setError] = useState("");
+  const router = useRouter();
+
+  const handleAuth = (e: FormEvent<HTMLFormElement>) => {
+    e.preventDefault();
+    setError("");
+
+    if (!email.trim() || !password.trim() || (isSignUp && !name.trim())) {
+      setError("Please fill in all required fields.");
+      return;
+    }
+
+    const user = { name: name || email.split("@")[0], email };
+    localStorage.setItem("educonnect_user", JSON.stringify(user));
+    router.push("/dashboard");
+  };
 
   return (
     <div className="min-h-[calc(100vh-10rem)] flex items-center justify-center px-4 py-12 bg-gradient-to-br from-teal-50 via-emerald-50 to-cyan-50 dark:from-teal-950/20 dark:via-emerald-950/20 dark:to-cyan-950/20">
@@ -52,25 +72,25 @@ export default function LoginPage() {
           </div>
 
           {/* Form */}
-          <form className="space-y-4" onSubmit={(e) => e.preventDefault()}>
+          <form className="space-y-4" onSubmit={handleAuth}>
             {isSignUp && (
               <div>
                 <label className="text-sm font-medium mb-1 block">Full Name</label>
-                <Input placeholder="Enter your full name" />
+                <Input placeholder="Enter your full name" value={name} onChange={(e) => setName(e.target.value)} />
               </div>
             )}
             <div>
               <label className="text-sm font-medium mb-1 block">Email</label>
               <div className="relative">
                 <Mail className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input placeholder="you@example.com" className="pl-9" type="email" />
+                <Input placeholder="you@example.com" className="pl-9" type="email" value={email} onChange={(e) => setEmail(e.target.value)} />
               </div>
             </div>
             <div>
               <label className="text-sm font-medium mb-1 block">Password</label>
               <div className="relative">
                 <Lock className="absolute left-3 top-1/2 -translate-y-1/2 h-4 w-4 text-muted-foreground" />
-                <Input placeholder="Enter your password" className="pl-9 pr-9" type={showPassword ? "text" : "password"} />
+                <Input placeholder="Enter your password" className="pl-9 pr-9" type={showPassword ? "text" : "password"} value={password} onChange={(e) => setPassword(e.target.value)} />
                 <button type="button" onClick={() => setShowPassword(!showPassword)} className="absolute right-3 top-1/2 -translate-y-1/2 text-muted-foreground">
                   {showPassword ? <EyeOff className="h-4 w-4" /> : <Eye className="h-4 w-4" />}
                 </button>
@@ -81,6 +101,7 @@ export default function LoginPage() {
                 <Link href="#" className="text-xs text-teal-600 hover:underline">Forgot password?</Link>
               </div>
             )}
+            {error && <p className="text-xs text-red-600">{error}</p>}
             <Button type="submit" className="w-full bg-gradient-to-r from-teal-500 to-emerald-600 hover:from-teal-600 hover:to-emerald-700 text-white">
               {isSignUp ? "Create Account" : "Sign In"}
             </Button>
@@ -88,7 +109,7 @@ export default function LoginPage() {
 
           <p className="text-center text-sm text-muted-foreground mt-6">
             {isSignUp ? "Already have an account?" : "Don't have an account?"}{" "}
-            <button onClick={() => setIsSignUp(!isSignUp)} className="text-teal-600 hover:underline font-medium">
+            <button type="button" onClick={() => setIsSignUp(!isSignUp)} className="text-teal-600 hover:underline font-medium">
               {isSignUp ? "Sign In" : "Sign Up"}
             </button>
           </p>

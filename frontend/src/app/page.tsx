@@ -300,14 +300,18 @@ export default function HomePage() {
             Join 25,000+ students who found their dream college through EduConnect.
           </p>
           <div className="flex flex-col sm:flex-row gap-3 justify-center">
-            <Button size="lg" variant="secondary" className="gap-2">
-              <GraduationCap className="h-5 w-5" />
-              Sign Up Free
-            </Button>
-            <Button size="lg" variant="outline" className="text-white border-white/30 hover:bg-white/10 gap-2">
-              <Globe className="h-5 w-5" />
-              Learn More
-            </Button>
+            <Link href="/login">
+              <Button size="lg" variant="secondary" className="gap-2">
+                <GraduationCap className="h-5 w-5" />
+                Sign Up Free
+              </Button>
+            </Link>
+            <Link href="/admissions">
+              <Button size="lg" variant="outline" className="text-white border-white/30 hover:bg-white/10 gap-2">
+                <Globe className="h-5 w-5" />
+                Learn More
+              </Button>
+            </Link>
           </div>
         </div>
       </section>
